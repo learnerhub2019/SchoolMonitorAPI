@@ -1,0 +1,64 @@
+{
+  "name": "school-monitor-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "prettier": "prettier --config ./.prettierrc --write \"**/*.js\"",
+    "pretest": "eslint --ignore-path .gitignore .",
+    "postinstall": "rm -rf dist && yarn run build",
+    "lint": "yarn prettier --write --check --config ./.prettierrc \"**/*.js\" && eslint --fix ./src",
+    "release": "release-it patch --no-npm.publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LearnerHub2019React/expressGL.git"
+  },
+  "author": "learnerhub2019",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LearnerHub2019React/expressGL/issues"
+  },
+  "homepage": "https://github.com/LearnerHub2019React/expressGL#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-destructuring": "^7.10.0",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^7.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "fs-extra": "^9.0.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "apollo-server-express": "^2.13.1",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "graphql": "^15.0.0",
+    "graphql-compose-mongoose": "^7.3.8",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.15",
+    "mongoose-timestamp": "^0.6.0",
+    "winston": "^3.3.0",
+    "yarn": "^1.22.4"
+  },
+  "keywords": []
+}

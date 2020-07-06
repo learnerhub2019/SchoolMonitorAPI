@@ -1,1 +1,13 @@
-†Ûi³ÿî¦ZvÇ(uëÖèÆ*?º™hiÛ?ºÇ«ÿ¶šá¦öç—õã›é¦¼m½¶}ÎŞwn´{øLÕ¶›zZÜ
+{
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-destructuring",
+      {
+        "useBuiltIns": true
+      }
+    ]
+  ]
+}

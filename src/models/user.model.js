@@ -5,7 +5,7 @@ const objConfig = require("../startup/config");
 const bcrypt = require("bcrypt");
 // import { composeWithMongoose } from 'graphql-compose-mongoose';
 
-export const UserSchema = mongoose.Schema(
+const UserSchema = mongoose.Schema(
   {
     firstName: {
       type: String,
@@ -76,5 +76,6 @@ UserSchema.methods.comparePassword = async function(pwd) {
 UserSchema.plugin(timestamps);
 UserSchema.index({ createdAt: 1, updatedAt: 1 });
 
+// exports.UserModel = this.UserModel;
 exports.User = mongoose.model("User", UserSchema);
 // export const UserModelTC = composeWithMongoose(UserModel);

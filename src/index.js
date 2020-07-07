@@ -11,7 +11,6 @@ const logger = require("./startup/logger");
 
 const initServer = async () => {
   const app = express();
-
   app.use(cors());
   app.use(express.json());
   app.use(bodyParser.json());

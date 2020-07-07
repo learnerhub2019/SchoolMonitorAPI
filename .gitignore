@@ -38,6 +38,9 @@ bower_components
 build/Release
 
 # Dependency directories
+/node_modules
+npm-debug.log
+/*.env
 node_modules/
 jspm_packages/
 
@@ -67,6 +70,8 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
+yarn.lcok
+/yarn.lcok
 
 # dotenv environment variables file
 .env

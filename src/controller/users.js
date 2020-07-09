@@ -9,9 +9,7 @@ router.get("/me", auth, async (req, res) => {
   const user = await User.findById(req.user._id).select("-password");
   res.send(user);
 });
-//p1234567
-//123Xyzasas
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWY3MjE0NTM0MTUzODMzMTA2MWQ4NzAiLCJ1c2VyTmFtZSI6InAxMjM0NTY3IiwiZW1haWwiOiJwMTIzNDU2N0BnbWFpbC5jb20iLCJpYXQiOjE1OTMyNTQyMTN9.cawQMIdl9S56nojL3MV3tVHKCzJdAaAfw6kEUTeFlow
+
 router.post("/", async (req, res) => {
   try {
     let user = await User.findOne({ email: req.body.email });
@@ -26,11 +24,13 @@ router.post("/", async (req, res) => {
         "password"
       ])
     );
-    const salt = await bcrypt.genSalt(10);
+
+    let salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
-    console.log(user.password);
+
     await user.save();
     const token = user.generateAuthToken();
+
     res
       .header("x-auth-token", token)
       .send(_.pick(user, ["_id"], "firstName", "lastName", "email"));

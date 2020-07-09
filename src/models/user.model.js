@@ -3,7 +3,6 @@ const timestamps = require("mongoose-timestamp");
 const jwt = require("jsonwebtoken");
 const objConfig = require("../startup/config");
 const bcrypt = require("bcrypt");
-// import { composeWithMongoose } from 'graphql-compose-mongoose';
 
 const UserSchema = mongoose.Schema(
   {
@@ -35,10 +34,7 @@ const UserSchema = mongoose.Schema(
     },
     password: {
       type: String,
-      trim: true,
-      lowercase: true,
-      required: true,
-      unique: true
+      required: true
     },
     isAdmin: Boolean
   },
@@ -57,20 +53,6 @@ UserSchema.methods.generateAuthToken = function() {
     objConfig["SECRET_KEY"]
   );
   return token;
-};
-
-UserSchema.methods.comparePassword = async function(pwd) {
-  console.log("in compare");
-  console.log(pwd);
-  console.log(this.password);
-  //const valEmail = await bcrypt.compare(pwd, this.password);
-  const valEmail = await bcrypt.compare(
-    "pa1@pwd#",
-    "$2b$10$bwcjjwueofotuaebbt7a2u/e3kjqighye.wjvoqfckezpqe6smcz6"
-  );
-  console.log(valEmail);
-  if (!valEmail) return false;
-  return true;
 };
 
 UserSchema.plugin(timestamps);

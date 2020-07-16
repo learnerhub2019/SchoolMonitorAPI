@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const timestamps = require("mongoose-timestamp");
 const jwt = require("jsonwebtoken");
 const objConfig = require("../startup/config");
-const bcrypt = require("bcrypt");
 
 const UserSchema = mongoose.Schema(
   {
